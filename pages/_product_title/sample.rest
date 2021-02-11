@@ -1,0 +1,23 @@
+
+POST http://138.68.62.198:8081/v1/auth/token HTTP/1.1
+content-type: application/json
+x-coupon-key: KuQmvnxXEjR7KXwfucgerTf6YwZV5Amz5awwxf5PFgkpGrb3Jn
+
+{
+    "name": "james",
+    "id": "coupon"
+}
+
+
+###
+
+POST http://138.68.62.198:8081/v1/auth/token HTTP/1.1
+content-type: application/json
+x-coupon-key: KuQmvnxXEjR7KXwfucgerTf6YwZV5Amz5awwxf5PFgkpGrb3Jn
+
+{
+    "name": "james",
+    "id": "coupon"
+}
+
+###
