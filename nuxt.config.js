@@ -2,12 +2,12 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   server: {
-    host: '192.168.1.5' // default: localhost
+    // host: '192.168.1.5' // default: localhost
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - dashboard',
+    titleTemplate: '%s - Coufon.com',
     title: 'dashboard',
     htmlAttrs: {
       lang: 'en'

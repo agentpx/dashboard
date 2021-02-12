@@ -119,7 +119,19 @@
 
 <script>
 export default {
-  
+  head: {
+    title: 'Coufon Detail Page',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'Coufon.com is a one stop coupon application.',
+        name: 'Coufon.com is a one stop coupon application.',
+        content: 'Coufon.com is a one stop coupon application.'
+      }
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
   props: ['api_value'],
   data () {
     return {

@@ -71,7 +71,7 @@ export default {
       drawer: false,
       fixed: false,
       items: [
-        { title: 'Home', icon: 'mdi-home-city', href: '/' },
+        { title: 'Explore', icon: 'mdi-home-city', href: '/' },
         // { title: 'Inspire', icon: 'mdi-account', href: '/inspire' },
         { title: 'Collection', icon: 'mdi-account', href: '/collection' },
         { title: 'Redeem', icon: 'mdi-account-group-outline', href: '/redeem' },
