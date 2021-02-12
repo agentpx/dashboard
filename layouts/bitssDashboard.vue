@@ -2,37 +2,39 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
+      :mini-variant="mini"
       :clipped="clipped"
-      fixed
+      :fixed="$vuetify.breakpoint.mdAndUp"
+      :absolute="$vuetify.breakpoint.smAndDown"
+      :temporary="$vuetify.breakpoint.smAndDown"
       app
     >
-      <v-list-item class="px-2">
-          
-        <v-img src="https://bitss.com/assets/img/bitss-logo.jpg" max-height="40px" max-width="200px" aspect-ratio="1.7" position="left" contain class="my-2"></v-img>
-          
-  
-         
-  
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          :href="item.href"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
-  
-        <v-divider></v-divider>
-  
-        <v-list dense>
-          <v-list-item
-            v-for="item in items"
-            :key="item.title"
-            :href="item.href"
-          >
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-  
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+      </v-list>
+      <v-divider></v-divider>
+      <v-list-item>
+        <v-btn
+          class="hidden-md-and-up"
+          text
+          elevation="0"
+          @click.stop="drawer = !drawer"
+        >
+          <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon> BACK
+        </v-btn>
+      </v-list-item>
     </v-navigation-drawer>
     <v-app-bar
       :clipped-left="clipped"
@@ -40,14 +42,8 @@
       app
       flat
     >
-      
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-img src="https://bitss.com/assets/img/bitss-logo.jpg" max-height="40px" max-width="200px" aspect-ratio="1.7" position="left" contain class="my-2"></v-img>
       
       <v-spacer />
     </v-app-bar>
@@ -85,6 +81,17 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
-  }
+  },
+  computed: {
+    mini() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return false
+        case 'sm': return false
+        case 'md': return false
+        case 'lg': return false
+        case 'xl': return false
+      }
+    }
+  },
 }
 </script>
